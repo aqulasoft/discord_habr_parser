@@ -1,0 +1,31 @@
+<student lang="ru">
+    <name>
+        Kirill
+    </name>
+    <surname>
+        Stulnikov
+    </surname>
+
+    <work>
+        <company>
+            <name>aqulasoft.com</name>
+            <role>cofounder</role>
+        </company>
+        <company>
+            <name>megafon</name>
+            <role>developer</role>
+        </company>
+        <freelance>
+            <name>шиномонтаж на шоссе</name>
+        </freelance>
+    </work>
+</student>
+
+
+<command>
+    <name>multi</name>
+    <args>
+        <arg>1</arg>
+        <arg>2</arg>
+    </args>
+</command>

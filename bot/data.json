@@ -1,0 +1,29 @@
+{
+  "student": {
+    "name": "Kirill",
+    "lang": "ru",
+    "works": {
+      "companies": [
+        {
+          "name": "aqulasoft.com"
+        },
+        {
+          "name": "megafon.com"
+        }
+      ],
+      "freelance": [
+        {
+          "name": "owlsight"
+        }
+      ]
+    }
+  },
+
+  "book": {
+    "author": null,
+    "cover": null,
+    "genre": "veselo",
+    "image_count": 0,
+    "pages": 123
+  }
+}
