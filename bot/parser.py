@@ -13,18 +13,20 @@ class Article:
     def __str__(self):
         return f'{self.title}\n\n\n{self.text}'
 
+    @staticmethod
+    def get_article_info(article_id: int):
+        page = requests.get(f'{base_url}/{article_id}')
 
-def get_article_info(article_id: int):
-    page = requests.get(f'{base_url}/{article_id}')
+        soup = BeautifulSoup(page.text, 'html.parser')
 
-    soup = BeautifulSoup(page.text, 'html.parser')
+        title = soup.find_all("span", class_="post__title-text")
+        body = soup.find_all("div", id="post-content-body")
 
-    title = soup.find_all("span", class_="post__title-text")
-    body = soup.find_all("div", id="post-content-body")
+        if len(title) > 0:
+            return Article(title[0].text, body[0].text)
 
-    if len(title) > 0:
-        article = Article(title[0].text, body[0].text)
-        print(article)
+        return None
 
 
-get_article_info(534136)
+#test
+#get_article_info(534136)
