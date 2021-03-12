@@ -7,12 +7,15 @@ base_url = 'https://habrahabr.ru/post'
 
 class Article:
 
-    def __init__(self, article_id, title, text):
+    def __init__(self, article_id, title, text, date=None):
         self.article_id = article_id
         self.title = title
         self.text = text
 
-        self.date = datetime.datetime.now()
+        if date is None:
+            self.date = datetime.datetime.now()
+        else:
+            self.date = datetime.datetime.strptime(date, '%d.%m.%Y %H.%M.%S')
 
     def __str__(self):
         return f'{self.title}\n\n\n{self.text}'
