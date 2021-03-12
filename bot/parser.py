@@ -1,14 +1,18 @@
+import datetime
+
 import requests
 from bs4 import BeautifulSoup
 
 base_url = 'https://habrahabr.ru/post'
 
-
 class Article:
 
-    def __init__(self, title, text):
+    def __init__(self, article_id, title, text):
+        self.article_id = article_id
         self.title = title
         self.text = text
+
+        self.date = datetime.datetime.now()
 
     def __str__(self):
         return f'{self.title}\n\n\n{self.text}'
@@ -23,7 +27,7 @@ class Article:
         body = soup.find_all("div", id="post-content-body")
 
         if len(title) > 0:
-            return Article(title[0].text, body[0].text)
+            return Article(article_id, title[0].text, body[0].text)
 
         return None
 
